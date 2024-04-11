@@ -1,2 +1,2 @@
-# My_Leecode
-leecode练习题
+# My_Leetcode
+leetcode练习题
