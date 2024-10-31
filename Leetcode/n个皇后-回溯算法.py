@@ -15,6 +15,7 @@ class Solution:
                 ans.append(['.' * c + 'Q' + '.' * (n - 1 - c)  for c in col])
                 return
             for c, on in enumerate(on_path):
+                print(c, on)
                 if not on and not diag1[r + c] and not diag2[r - c]:
                     col[r] = c
                     on_path[c] = diag1[r + c] = diag2[r - c] = True
@@ -50,6 +51,28 @@ class Solution:
 #
 # dfs(0)：从第一行开始进行深度优先搜索。
 # return ans：返回所有合法的棋盘配置。
+
+class my_solution:
+    def solveNQ(self,n):
+        m = n*2-1
+        ans = []
+        col = [0]*n
+        on_path, diag1, diag2 = [False]*n, [False]*m, [False]*m
+        def dfs(r):
+            if r == n:
+                ans.append(['.'*c + 'Q' + '.'*(n-1-c) for c in col])
+                return
+            for c, on in enumerate(on_path):
+                if not on and not diag1[r+c] and not diag2[r-c]:
+                    col[r] = c
+                    on_path[c] = diag1[r+c] = diag2[r-c] = True
+                    dfs(r+1)
+                    on_path[c] = diag1[r+c] = diag2[r-c] = False
+        dfs(0)
+        return ans
+
+
+
 
 
 if __name__ == '__main__':

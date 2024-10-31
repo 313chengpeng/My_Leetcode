@@ -25,23 +25,23 @@
 
 class Solution:
     def maxArea(self, height: list[int]) -> int:
-        i,j=0,len(height)-1
-        max_value=0
-        while i!=j:
-            if height[i]<height[j]:
-                max_value=max(max_value,height[i]*(j-i))
-                temp=height[i]
-                i+=1
-                while height[i]<=temp:
-                    i+=1
+        i, j = 0, len(height)-1
+        max_value = 0
+        while i != j:
+            if height[i] < height[j]:
+                max_value = max(max_value, height[i]*(j-i))
+                # temp = height[i]
+                i += 1
+                # while height[i] <= temp:
+                #     i += 1
             else:
-                max_value=max(max_value,height[j]*(j-i))
-                temp=height[j]
-                j-=1
-                while height[j]<=temp and j!=i:
-                    j-=1
+                max_value = max(max_value, height[j]*(j-i))
+                # temp = height[j]
+                j -= 1
+                # while height[j] <= temp and j != i:
+                #     j -= 1
         return max_value
 if __name__ == '__main__':
     a = Solution()
-    b = a.maxArea([2,3,4,5,18,17,6])
+    b = a.maxArea([1,8,6,2,5,4,8,3,7])
     print(b)
